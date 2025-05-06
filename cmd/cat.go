@@ -1,13 +1,9 @@
-/*
-Copyright © 2025 NAME HERE <EMAIL ADDRESS>
-*/
+// Copyright © 2025 Sam Muller gamedevsam@pm.me
 package cmd
 
 import (
 	"fmt"
-	"os"
 
-	"github.com/samthesomebody/qcka/files"
 	"github.com/spf13/cobra"
 )
 
@@ -16,30 +12,32 @@ var catCmd = &cobra.Command{
 	Use:   "cat",
 	Short: "List all aliases in '.bash_aliases'",
 	Run: func(cmd *cobra.Command, args []string) {
-		aliases, err := files.GetAliases()
-		if err != nil {
-			fmt.Printf("[ERROR] unable to get aliases: %v\n", err)
-			os.Exit(1)
-		}
-
 		i := 0
-		for key, value := range(aliases) {
-			fmt.Printf("[%v] %v: %v\n", i, key, value)
-			i++
+		if group == "" {
+			for groupKey, groupValue := range aliases.Groups {
+				i = printGroup(i, groupKey, groupValue.Values)
+			}
+		} else {
+			g, ok := aliases.Groups[group]
+			if !ok {
+				fmt.Printf("Group '%v' does not exist", group)
+			}
+			printGroup(i, group, g.Values)
 		}
 	},
 }
 
+func printGroup(i int, groupName string, values map[string]string) int {
+	fmt.Printf("-- %v --\n", groupName)
+	for key, value := range values {
+		fmt.Printf("[%v] %v=\"%v\"\n", i, key, value)
+		i++
+	}
+	fmt.Println()
+	return i
+}
+
 func init() {
 	rootCmd.AddCommand(catCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// catCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// catCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	catCmd.SuggestFor = []string{"list", "show"}
 }

@@ -1,40 +1,33 @@
-/*
-Copyright © 2025 NAME HERE <EMAIL ADDRESS>
-
-*/
+// Copyright © 2025 Sam Muller gamedevsam@pm.me
 package cmd
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/cobra"
 )
 
 // hereCmd represents the here command
 var hereCmd = &cobra.Command{
-	Use:   "here",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Use:   "here [\"name\"]",
+	Short: "Add a change directory [cd] alias for the current directory",
+	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("here called")
+		value, err := os.Getwd()
+		if err != nil {
+			fmt.Printf("[ERROR] Couldn't get working directory: %v\n", err)
+			os.Exit(1)
+		}
+		value = fmt.Sprintf("cd %v", value)
+		err = aliases.Add("BOOKMARKS", args[0], value)
+		if err != nil {
+			fmt.Printf("[ERROR] Couldn't add here alias: %v\n", err)
+			os.Exit(1)
+		}
 	},
 }
 
 func init() {
 	rootCmd.AddCommand(hereCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// hereCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// hereCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

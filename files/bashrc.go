@@ -1,3 +1,4 @@
+// Copyright © 2025 Sam Muller gamedevsam@pm.me
 package files
 
 import (
@@ -26,7 +27,7 @@ func SourceAlias() error {
 	}
 
 	data = append(data, []byte(aliasSource)...)
-	err = Write(data, ".bashrc")
+	err = Write(data, ".bashrc", true)
 	if err != nil {
 		return fmt.Errorf("error sourcing '.bash_alias' in '.bashrc': %v", err)
 	}
