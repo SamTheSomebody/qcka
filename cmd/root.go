@@ -52,9 +52,9 @@ func Execute() {
 
 func init() {
 	settings.New()
-	rootCmd.PersistentFlags().StringVarP(&group, "group", "g", "", "Define a group for the command")
-	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Force, "force", "f", false, "Ignore any warnings")
-	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Quiet, "quiet", "q", false, "Run in quiet mode")
-	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Verbose, "verbose", "v", false, "Run in verbose mode")
+	rootCmd.PersistentFlags().StringVarP(&group, "group", "g", "", "define a group for the command")
+	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Force, "force", "f", false, "ignore any warnings")
+	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Quiet, "quiet", "q", false, "run in quiet mode")
+	rootCmd.PersistentFlags().BoolVarP(&settings.Settings.Verbose, "verbose", "v", false, "run in verbose mode")
 	rootCmd.MarkFlagsMutuallyExclusive("quiet", "verbose")
 }

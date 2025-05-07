@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/samthesomebody/qcka">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="600" height="200">
   </a>
 
   <h3 align="center">qcka</h3>
@@ -20,7 +20,7 @@
     Quick alias is a bash tool to add and manage aliases without having to edit your .bashrc or .bash_aliases.
     <br />
     <br />
-    <a href="https://github.com/SamTheSomebody/qcka">View Demo</a>
+    <a href="https://github.com/SamTheSomebody/qcka">View Demo <i>(TODO)</i></a>
     &middot;
     <a href="https://github.com/SamTheSomebody/qcka/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     &middot;
@@ -64,18 +64,21 @@
 Quick alias allows you to add, manage, remove and view your bash aliases on the fly. It has simple grouping to help keep things organized. 
 
 Here's why:
-* Don't stop what you're doing. The whole reason you're using aliases to speed up your workflow, so simplify managing them! 
+* Don't stop what you're doing. You're using aliases to speed up your workflow, so speed up managing them! 
 * A 'here' function to bookmark your current directory.
-* Override dectection for inbuilts, commands, funcitons and other aliases.
+* Alias validation *(TODO)* and override dectection for inbuilts, commands, funcitons and other aliases.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
 <div align="center">
-[![Go][Go]][Go-url]
-&middot;
-[![Cobra][Cobra]][Cobra-url]
+<img src="https://go.dev/images/go-logo-white.svg" alt="Go" width="100">
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<img src="https://github.com/user-attachments/assets/cbc3adf8-0dff-46e9-a88d-5e2d971c169e" alt="Go" width="100">
 </div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -83,15 +86,21 @@ Here's why:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-TODO
+I'm still working on a release of qcka, for now it can only be built from source.
 
 ### Prerequisites
 
-TODO
+* Go: https://go.dev/doc/install
 
 ### Installation
 
-TODO
+To build from source:
+1) Clone this repository.
+2) Change to it's directory.
+3) Run the following command:
+```
+go build && export PATH=$PATH:$(go list -f '{{.Target}}') && go install
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,7 +109,13 @@ TODO
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-TODO
+Run quick alias with the command: ```qcka```
+
+Quick alias features a built-in manual, alongside 'did you mean' suggestions.
+
+For more information run: ```qcka --help```
+
+*TODO: [generate markdown documentation using cobra](https://github.com/spf13/cobra/blob/main/site/content/docgen/md.md).*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,7 +123,11 @@ TODO
 <!-- ROADMAP -->
 ## Roadmap
 
-TODO
+- [ ] Alias valiadation
+- [ ] Documentation
+- [ ] Test suite
+- [ ] Build pipeline
+- [ ] Package & release
 
 See the [open issues](https://github.com/SamTheSomebody/qcka/issues) for a full list of proposed features (and known issues).
 
@@ -133,7 +152,7 @@ Don't forget to give the project a star! Thanks again!
 ### Top contributors:
 
 <a href="https://github.com/SamTheSomebody/qcka/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=samthesomebody/qcka" alt="contrib.rocks image" />
 </a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -143,7 +162,9 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU GPLv3 License. See `LICENSE` for more information.
+Distributed under the GNU GPLv3 License.
+
+See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,8 +172,9 @@ Distributed under the GNU GPLv3 License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
+@SamTheSomebody aka @GameDevSam
 
-TODO
+Sam Muller - gamedevsam@pm.me
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,7 +183,9 @@ TODO
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-TODO
+* [Cobra](https://github.com/spf13/cobra) for making cli tools so easy.
+* othneildrew for the [best README template](https://github.com/othneildrew/Best-README-Template).
+* [Boot.dev](https://www.boot.dev) for giving me the skills to make this.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,16 +193,15 @@ TODO
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/samthesomebody/qcka.svg?style=for-the-badge
 [contributors-url]: https://github.com/SamTheSomebody/qcka/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/samthesomebody/qcka.svg?style=for-the-badge
 [forks-url]: https://github.com/SamTheSomebody/qcka/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/samthesomebody/qcka.svg?style=for-the-badge
 [stars-url]: https://github.com/SamTheSomebody/qcka/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/samthesomebody/qcka.svg?style=for-the-badge
 [issues-url]: https://github.com/SamTheSomebody/qcka/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/samthesomebody/qcka.svg?style=for-the-badge
 [license-url]: https://github.com/SamTheSomebody/qcka/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/gamedevsam/
-[Go-url]: https://go.dev/images/go-logo-white.svg
