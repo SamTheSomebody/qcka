@@ -123,7 +123,7 @@ For more information run: ```qcka --help```
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Alias valiadation
+- [ ] Alias validation
 - [ ] Documentation
 - [ ] Test suite
 - [ ] Build pipeline
