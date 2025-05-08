@@ -17,6 +17,7 @@ var addCmd = &cobra.Command{
 		if group == "" {
 			group = "DEFAULT"
 		}
+
 		err := aliases.Add(group, args[0], args[1])
 		if err != nil {
 			fmt.Printf("[ERROR] Couldn't add alias: %v\n", err)

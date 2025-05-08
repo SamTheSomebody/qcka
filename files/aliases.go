@@ -10,8 +10,10 @@ import (
 )
 
 const (
-	groupPrefix = "#Group:"
-	fileName    = ".bash_aliases"
+	groupPrefix            = "#Group:"
+	fileName               = ".bash_aliases"
+	invalidAliasChars      = "/$`="
+	invalidAliasCharsPrint = "/, $, `, ="
 )
 
 type Aliases struct {
@@ -90,7 +92,23 @@ func (a *Aliases) Add(group, key, value string) error {
 	key = strings.TrimSpace(key)
 	value = strings.TrimSpace(value)
 
-	// TODO check valid
+	if strings.Contains(key, "2084") || strings.ContainsAny(key, invalidAliasChars) {
+		fmt.Printf("Alias %s is invalid. Cannot contain any of: %s\n", key, invalidAliasChars)
+		return nil
+	}
+
+	cmd := strings.Split(value, " ")[0]
+	_, err := exec.Command("bash", "-c", "type -a"+cmd).Output()
+	if err != nil && !settings.Settings.Force {
+		fmt.Printf("[Warning] %s has no usages in bash. Continue? y/n: ", cmd)
+		isContinuing, err := awaitYesNo()
+		if err != nil {
+			return fmt.Errorf("error adding alias: %v", err)
+		}
+		if !isContinuing {
+			return nil
+		}
+	}
 
 	output, err := exec.Command("bash", "-c", "type -a "+key).Output()
 	if err == nil && !settings.Settings.Force {
