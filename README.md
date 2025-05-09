@@ -11,7 +11,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/samthesomebody/qcka">
-    <img src="images/logo.png" alt="Logo" width="600" height="200">
+    <img src="images/logo.svg" alt="Logo" width="600" height="200">
   </a>
 
   <h3 align="center">qcka</h3>
@@ -66,7 +66,7 @@ Quick alias allows you to add, manage, remove and view your bash aliases on the 
 Here's why:
 * Don't stop what you're doing. You're using aliases to speed up your workflow, so speed up managing them! 
 * A 'here' function to bookmark your current directory.
-* Alias validation *(TODO)* and override dectection for inbuilts, commands, funcitons and other aliases.
+* Alias validation and override dectection for inbuilts, commands, funcitons and other aliases.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +123,7 @@ For more information run: ```qcka --help```
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Alias validation
+- [x] Alias validation
 - [ ] Documentation
 - [ ] Test suite
 - [ ] Build pipeline
