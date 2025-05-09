@@ -92,13 +92,13 @@ func (a *Aliases) Add(group, key, value string) error {
 	key = strings.TrimSpace(key)
 	value = strings.TrimSpace(value)
 
-	if strings.Contains(key, "2084") || strings.ContainsAny(key, invalidAliasChars) {
-		fmt.Printf("Alias %s is invalid. Cannot contain any of: %s\n", key, invalidAliasChars)
+	if strings.ContainsAny(key, invalidAliasChars) {
+		fmt.Printf("Alias %s is invalid. Cannot contain any of: %s\n", key, invalidAliasCharsPrint)
 		return nil
 	}
 
 	cmd := strings.Split(value, " ")[0]
-	_, err := exec.Command("bash", "-c", "type -a"+cmd).Output()
+	_, err := exec.Command("bash", "-c", "type -a "+cmd).Output()
 	if err != nil && !settings.Settings.Force {
 		fmt.Printf("[Warning] %s has no usages in bash. Continue? y/n: ", cmd)
 		isContinuing, err := awaitYesNo()
